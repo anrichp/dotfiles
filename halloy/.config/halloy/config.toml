@@ -1,0 +1,20 @@
+# Halloy config.
+#
+# For a complete list of available options,
+# please visit https://halloy.squidowl.org/configuration/index.html
+
+[servers.liberachat]
+nickname = "anrichp"
+server = "irc.libera.chat"
+channels = ["#halloy","#bitcoin", "#bitcoin-core-dev"]
+
+[servers.orpheus]
+nickname = "anrichp"
+server = "irc.orpheus.network"
+port = 7000
+tls = true
+channels = ["#orpheus"]
+on_connect = [
+    "/msg NickServ IDENTIFY anrichp EBBHhfK5ysnTQUkWjSqekzxdDbgKCtTe",
+    "/msg Hermes ENTER #orpheus anrichp EBBHhfK5ysnTQUkWjSqekzxdDbgKCtTe"
+]
