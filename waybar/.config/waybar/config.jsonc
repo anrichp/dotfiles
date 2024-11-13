@@ -15,6 +15,7 @@
     "network",
     "temperature",
     "battery",
+    "custom/power"
     ],
     "hyprland/window": {
       "format": "{}",
@@ -88,4 +89,17 @@
       },
       "on-click": "pwvucontrol"
     },
+    "custom/power": {
+      "exec": "asusctl profile -p | awk '{print $2}'",
+      "format": "{icon}",
+      "format-icons": {
+        "Quiet": "",
+        "Balanced": "",
+        "Performance": ""
+      },
+      "tooltip": true,
+      "tooltip-format": "Power Profile: {}",
+      "interval": 5,
+      "on-click": "asusctl profile -n"
+    } 
 }
