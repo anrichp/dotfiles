@@ -1,105 +1,101 @@
 {
   "margin-top" : 5,
-    "margin-left": 10,
-    "margin-right": 10,
-    "height" : 30,
-    "modules-left": [
-      "hyprland/window"
-    ],
-    "modules-center": [
-      "hyprland/workspaces",
-      "clock",
-    ],
-    "modules-right": [
+  "margin-left": 10,
+  "margin-right": 10,
+  "height" : 30,
+  "modules-left": [
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "hyprland/workspaces",
+    "clock",
+  ],
+  "modules-right": [
     "pulseaudio",
     "network",
     "temperature",
     "battery",
-    "custom/power"
-    ],
-    "hyprland/window": {
-      "format": "{}",
-      "max-length": 35,
-      "rewrite": {
-        "": "Harsh"
-      },
-      "separate-outputs": true,
+    "custom/power_profile"
+  ],
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 35,
+    "rewrite": {
+      "": "Harsh"
     },
-    "hyprland/workspaces": {
-      "format": "{icon}",
-      "on-click": "activate",
-      "format-icons": {
-        "active": " ",
-      },
-      "sort-by-number": true,
-      "persistent-workspaces": {
-        "*": 4, // 5 workspaces by default on every monitor
-        "HDMI-A-1": 3 // but only three on HDMI-A-1
-      },
+    "separate-outputs": true,
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "active": " ",
     },
-    "clock": {
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format-alt": "{:%Y-%m-%d}"
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "*": 4, // 5 workspaces by default on every monitor
+      "HDMI-A-1": 3 // but only three on HDMI-A-1
     },
-    "cpu": {
-      "format": "  {usage}%",
-      "tooltip": false
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "cpu": {
+    "format": "  {usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "{}%  "
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", ""]
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
     },
-    "memory": {
-      "format": "{}%  "
+    "format": "{icon}  {capacity}%",
+    "format-full": "{icon}  {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": " ⚠ ",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
     },
-    "temperature": {
-      "critical-threshold": 80,
-      "format": "{icon} {temperatureC}°C",
-      "format-icons": ["", "", ""]
-    },
-    "battery": {
-      "states": {
-        "warning": 30,
-        "critical": 15
-      },
-      "format": "{icon}  {capacity}%",
-      "format-full": "{icon}  {capacity}%",
-      "format-charging": "  {capacity}%",
-      "format-plugged": "  {capacity}%",
-      "format-alt": "{time} {icon}",
-      "format-icons": ["", "", "", "", ""]
-    },
-    "network": {
-      "format-wifi": "  {signalStrength}%",
-      "format-ethernet": "{cidr} ",
-      "tooltip-format": "{ifname} via {gwaddr} ",
-      "format-linked": "{ifname} (No IP) ",
-      "format-disconnected": " ⚠ ",
-      "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "pulseaudio": {
-      "format": "{icon}  {volume}%",
-      "format-bluetooth": "{volume}% {icon} {format_source}",
-      "format-bluetooth-muted": " {icon} {format_source}",
-      "format-muted": "",
-      "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": ["", "", ""]
-      },
-      "on-click": "pwvucontrol"
-    },
-    "custom/power": {
-      "exec": "asusctl profile -p | awk '{print $2}'",
-      "format": "{icon}",
-      "format-icons": {
-        "Quiet": "",
-        "Balanced": "",
-        "Performance": ""
-      },
-      "tooltip": true,
-      "tooltip-format": "Power Profile: {}",
-      "interval": 5,
-      "on-click": "asusctl profile -n"
-    } 
+    "on-click": "pwvucontrol"
+  },
+
+  "custom/power_profile": {
+    "exec": "asusctl profile -p | sed -n '2p' | tr -d '\\n'",
+    "interval": 30,
+    "format": "󰈐 {}", 
+    "on-click": "asusctl profile -n && pkill -SIGRTMIN+8 waybar",
+    "signal": 8
+  } 
 }
+

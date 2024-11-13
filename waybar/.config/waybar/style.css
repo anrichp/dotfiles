@@ -61,7 +61,7 @@ button:hover {
 #memory,
 #temperature,
 #network,
-#power,
+#custom-power_profile,
 #pulseaudio {
   padding: 0 10px;
 }
