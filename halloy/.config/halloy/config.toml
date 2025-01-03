@@ -6,7 +6,7 @@
 [servers.liberachat]
 nickname = "anrichp"
 server = "irc.libera.chat"
-channels = ["#halloy","#bitcoin", "#bitcoin-core-dev"]
+channels = ["#halloy","#bitcoin", "#bitcoin-core-dev", "#launchpad-dev"]
 
 [servers.orpheus]
 nickname = "anrichp"
