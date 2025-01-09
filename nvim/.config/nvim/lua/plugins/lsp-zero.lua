@@ -88,7 +88,31 @@ return {
                 "tex"
               },
             })
-          end
+          end,
+          ['pyright'] = function()
+            require('lspconfig').pyright.setup({
+              filetypes = { "python" },
+              settings = {
+                python = {
+                  analysis = {
+                    typeCheckingMode = "basic",
+                    autoSearchPaths = true,
+                    useLibraryCodeForTypes = true
+                  }
+                }
+              }
+            })
+          end,
+          ['angularls'] = function()
+            require('lspconfig').angularls.setup({
+              filetypes = {
+                "typescript",
+                "html",
+                "typescriptreact",
+                "typescript.tsx"
+              },
+            })
+          end,
         }
       })
     end
