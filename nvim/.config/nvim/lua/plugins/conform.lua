@@ -27,6 +27,7 @@ return {
       css = { "prettier" },
       tex = { "latexindent" },
       typescript = { "prettierd", "prettier"},
+      markdown = { "markdownlint" },
     },
     -- Set default options
     default_format_opts = {

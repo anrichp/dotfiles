@@ -113,6 +113,13 @@ return {
               },
             })
           end,
+          ['marksman'] = function()
+            require('lspconfig').marksman.setup({
+              filetypes = {
+                "markdown",
+              },
+            })
+          end,
         }
       })
     end
