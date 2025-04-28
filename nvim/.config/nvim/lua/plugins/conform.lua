@@ -28,6 +28,7 @@ return {
       tex = { "latexindent" },
       typescript = { "prettierd", "prettier"},
       markdown = { "markdownlint" },
+      rust = { "rustfmt" },
     },
     -- Set default options
     default_format_opts = {

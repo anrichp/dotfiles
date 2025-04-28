@@ -120,6 +120,18 @@ return {
               },
             })
           end,
+          ['rust_analyzer'] = function()
+            require('lspconfig').rust_analyzer.setup({
+              settings = {
+                ['rust-analyzer'] = {
+                  checkOnSave = {
+                    enable = true,
+                    command = "clippy"
+                  },
+                }
+              }
+            })
+          end,
         }
       })
     end
@@ -204,5 +216,11 @@ return {
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
     },
+  },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+    end,
   },
 }
