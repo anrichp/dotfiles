@@ -11,4 +11,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = "anrichp.plugins",
 	change_detection = { notify = false },
+	git = {
+		throttle = {
+			enabled = true,
+			rate = 1,
+			duration = 15 * 1000,
+		},
+	},
 })
