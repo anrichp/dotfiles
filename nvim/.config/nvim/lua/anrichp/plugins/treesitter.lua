@@ -20,6 +20,7 @@ return { -- Highlight, edit, and navigate code
 			"toml",
 			"vim",
 			"vimdoc",
+			"toml",
 		},
 		-- Autoinstall languages that are not installed
 		auto_install = true,
