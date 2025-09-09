@@ -51,7 +51,7 @@
   "temperature": {
     "critical-threshold": 80,
     "format": "{icon} {temperatureC}°C",
-    "format-icons": ["", "", ""]
+    "format-icons": ["", "", ""]
   },
   "battery": {
     "states": {
@@ -67,9 +67,9 @@
   },
   "network": {
     "format-wifi": "  {signalStrength}%",
-    "format-ethernet": "{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
+    "format-ethernet": "{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
     "format-disconnected": " ⚠ ",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
