@@ -14,7 +14,3 @@ server = "irc.orpheus.network"
 port = 7000
 tls = true
 channels = ["#orpheus"]
-on_connect = [
-    "/msg NickServ IDENTIFY anrichp EBBHhfK5ysnTQUkWjSqekzxdDbgKCtTe",
-    "/msg Hermes ENTER #orpheus anrichp EBBHhfK5ysnTQUkWjSqekzxdDbgKCtTe"
-]
